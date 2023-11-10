@@ -1,0 +1,11 @@
+---
+- name: Copy certificate
+  hosts: <hosts del inventario>
+  remote_user: system
+  tasks:
+
+  - name: Copia el certificado de 2022 del Registry a /etc/docker/certs.d/<hostname>:5000/
+    copy:
+      src: domain2022.crt
+      dest: /etc/docker/certs.d/<hostname>:5000/ca.crt
+    become: yes
