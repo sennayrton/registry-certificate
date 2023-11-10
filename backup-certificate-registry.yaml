@@ -1,0 +1,12 @@
+---
+- name: Backup certificate registry
+  hosts: <hosts del inventario>
+  remote_user: system
+  tasks:
+
+  - name: Realiza un backup del certificado del Registry actual en /home/user
+    copy:
+      src: /etc/docker/certs.d/<hostname>:5000/ca.crt
+      dest: /home/user/ca-2021.crt
+      remote_src: yes
+    become: yes
